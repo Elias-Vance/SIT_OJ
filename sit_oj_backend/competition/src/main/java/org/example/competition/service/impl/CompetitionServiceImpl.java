@@ -963,4 +963,14 @@ public class CompetitionServiceImpl extends ServiceImpl<CompetitionMapper, Compe
         return "WA";
     }
 
+
+    @Override
+    @Transactional(rollbackFor = Exception.class) // 开启事务，强制提交
+    public boolean updateCompetitionName(Competition competition) {
+        return this.lambdaUpdate()
+                .eq(Competition::getCompetitionId, competition.getCompetitionId())
+                .set(Competition::getCompetitionName, competition.getCompetitionName())
+                .update();
+    }
+
 }

@@ -36,4 +36,6 @@ public interface CompetitionService extends IService<Competition> {
     /** 导出比赛数据为 ICPC Resolver NDJSON 格式 */
     String exportForResolver(Integer competitionId);
 
+    boolean updateCompetitionName(Competition competition);
+
 }

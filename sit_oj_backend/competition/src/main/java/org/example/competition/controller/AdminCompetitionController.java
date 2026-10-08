@@ -51,10 +51,7 @@ public class AdminCompetitionController {
             return Result.error("比赛ID不能为空");
         }
         // 创建后仅允许修改比赛名称，开始/结束/封榜时间不可修改
-        boolean success = competitionService.lambdaUpdate()
-                .eq(Competition::getCompetitionId, competition.getCompetitionId())
-                .set(Competition::getCompetitionName, competition.getCompetitionName())
-                .update();
+        boolean success = competitionService.updateCompetitionName(competition);
         return success ? Result.success("更新成功") : Result.error("更新失败");
     }
 
