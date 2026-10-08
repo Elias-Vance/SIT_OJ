@@ -970,6 +970,8 @@ public class CompetitionServiceImpl extends ServiceImpl<CompetitionMapper, Compe
         return this.lambdaUpdate()
                 .eq(Competition::getCompetitionId, competition.getCompetitionId())
                 .set(Competition::getCompetitionName, competition.getCompetitionName())
+                .set(Competition::getStartTime,competition.getStartTime())
+                .set(Competition::getEndTime,competition.getEndTime())
                 .update();
     }
 
